@@ -119,8 +119,8 @@ const offerings = [
       "A hands-on presentation and workshop covering every generative AI tool I use daily. I walk you through the models, show live demos, compare outputs side by side, and teach you how to build a production pipeline from scratch.",
     points: [
       "Video generation \u2014 Google Flow, Veo, Runway, Sora, Cling",
-      "Image generation \u2014 Midjourney, Nano Banana Pro, Higgs Field, DALL-E",
-      "AI UGC \u2014 Arcads, Higgs Field for life-like human presenters at scale",
+      "Image generation \u2014 Midjourney, Nano Banana Pro, HiggsField, DALL-E",
+      "AI UGC \u2014 Arcads, HiggsField for life-like human presenters at scale",
       "Voice and audio \u2014 ElevenLabs, voice cloning, narration",
       "Prompt engineering \u2014 how to get consistent, brand-quality output",
       "Building a pipeline \u2014 from brief to finished asset, same day",
