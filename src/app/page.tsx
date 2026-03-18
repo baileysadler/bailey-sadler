@@ -231,11 +231,11 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.55, ease }}
                 className="text-muted text-lg leading-relaxed max-w-[52ch] mb-8"
               >
-                12 months ago I was a video editor. Today I direct AI content
-                for a $2B airline, ship web applications with no engineering
-                team, and run AI pipelines that replaced entire agency
-                contracts. I teach companies and individuals how to do the same
-                thing.
+                In the last 12 months I went from video editor to directing AI
+                content for a $2B airline, shipping 10+ web apps with no
+                engineering team, and building pipelines that eliminated agency
+                costs entirely. Now I run two presentations that teach you how
+                to create AI content and use Claude to accelerate your business.
               </motion.p>
 
               <motion.div
