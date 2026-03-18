@@ -120,6 +120,7 @@ const offerings = [
     points: [
       "Video generation \u2014 Google Flow, Veo, Runway, Sora, Cling",
       "Image generation \u2014 Midjourney, Nano Banana Pro, Higgs Field, DALL-E",
+      "AI UGC \u2014 Arcads, Higgs Field for life-like human presenters at scale",
       "Voice and audio \u2014 ElevenLabs, voice cloning, narration",
       "Prompt engineering \u2014 how to get consistent, brand-quality output",
       "Building a pipeline \u2014 from brief to finished asset, same day",
