@@ -21,9 +21,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Bailey Sadler — AI Transformation Director",
+  title: "Bailey Sadler — AI Educator",
   description:
-    "I help businesses embed AI into their content, automation, and product workflows. 8+ years in digital media. 10+ live applications shipped. Enterprise clients including a $2B global airline.",
+    "I went from video editor to AI Creative Director in 12 months. Now I teach individuals and companies how to do the same. Practical AI training built on real results.",
 };
 
 export default function RootLayout({

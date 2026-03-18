@@ -3,19 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
-  Lightning,
-  Robot,
-  Code,
-  VideoCamera,
   ArrowUpRight,
   EnvelopeSimple,
   LinkedinLogo,
-  MapPin,
+  Play,
+  Buildings,
+  User,
 } from "@phosphor-icons/react";
 
-const ease = [0.32, 0.72, 0, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const;
 
-function ScrollReveal({
+function Reveal({
   children,
   delay = 0,
   className = "",
@@ -26,10 +24,10 @@ function ScrollReveal({
 }) {
   return (
     <motion.div
-      initial={{ y: 40, opacity: 0, filter: "blur(8px)" }}
-      whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.9, delay, ease }}
+      initial={{ y: 16, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay, ease }}
       className={className}
     >
       {children}
@@ -37,92 +35,105 @@ function ScrollReveal({
   );
 }
 
-const stats = [
-  { value: "\u00a325,000", label: "Per-video valuation from a $2B airline" },
-  { value: "10+", label: "Live web apps shipped with Claude Code" },
+const proof = [
   {
-    value: "4 wks \u2192 same day",
-    label: "Content turnaround rebuilt from scratch",
+    stat: "\u00a325K",
+    context: "per video",
+    detail: "Valued by a $2B airline client. No pushback on price.",
   },
   {
-    value: "\u00a38,000+",
-    label: "Per-video agency cost eliminated with AI",
-  },
-  { value: "200K\u20131M", label: "Views per video at LADbible Group" },
-  { value: "27+", label: "AI content projects delivered since Oct 2025" },
-];
-
-const services = [
-  {
-    icon: VideoCamera,
-    title: "AI content production",
-    description:
-      "End-to-end generative video, image, and voice pipelines that replace agency dependency. Same quality, fraction of the cost, same-day turnaround.",
+    stat: "27+",
+    context: "projects",
+    detail:
+      "AI content delivered at Darts Corner since starting in October 2025.",
   },
   {
-    icon: Robot,
-    title: "AI automation",
-    description:
-      "Voice agents, lead qualification bots, and workflow automation using VAPI, ElevenLabs, and Make.com. Systems that run while you sleep.",
+    stat: "10+",
+    context: "apps shipped",
+    detail:
+      "Live web applications built and deployed using Claude Code. No engineering team.",
   },
   {
-    icon: Code,
-    title: "AI-native product builds",
-    description:
-      "Full web applications built and shipped with Claude Code. From SaaS concepts to operational tools, deployed independently with no engineering team.",
+    stat: "4 wks \u2192 1 day",
+    context: "turnaround",
+    detail:
+      "Content production rebuilt from scratch. Same-day delivery, every time.",
   },
   {
-    icon: Lightning,
-    title: "AI strategy and integration",
-    description:
-      "Audit your current workflows, identify where AI creates leverage, and build the infrastructure to make it permanent. Not a demo. A system.",
+    stat: "\u00a38K+",
+    context: "saved per video",
+    detail: "Agency dependency eliminated entirely with AI pipelines.",
+  },
+  {
+    stat: "1M",
+    context: "views per video",
+    detail: "Managing content at LADbible Group across 1M+ follower channels.",
   },
 ];
 
-const experience = [
+const timeline = [
   {
-    role: "AI Creative Director",
-    company: "flydubai",
-    via: "Via Capra Studio",
-    period: "2025",
-    result:
-      "Directed generative content for a $2B global airline across 100+ routes. Work valued at \u00a325,000 per video by the client. Zero pushback on quality or price.",
+    year: "2020",
+    title: "Social media manager",
+    description:
+      "Started creating content for wellness and finance brands. Photography, video, social graphics. Learning the craft.",
   },
   {
-    role: "AI Content Manager",
-    company: "Darts Corner",
-    period: "Oct 2025 \u2013 Present",
-    result:
-      "Sole AI content creator. 27+ projects delivered. Rebuilt turnaround from 4 weeks to same-day. Eliminated \u00a38,000+ per-video agency costs entirely.",
+    year: "2022",
+    title: "Video editor at KOMI Group",
+    description:
+      "High-volume short-form content for Snapchat and TikTok. Deep platform fluency. Fast turnaround instincts.",
   },
   {
-    role: "Founder & CEO",
-    company: "Capra AI & Capra Studio",
-    period: "Dec 2024 \u2013 Present",
-    result:
-      "Two AI ventures spanning conversational automation and enterprise generative content. 10+ live web applications shipped. Enterprise commissions secured independently.",
+    year: "2024",
+    title: "Snapchat Manager at LADbible",
+    description:
+      "1M+ follower channels. 200K\u20131M views per video. 10\u201315 videos per week. One of the UK\u2019s largest publishers.",
   },
   {
-    role: "Snapchat Manager",
-    company: "LADbible Group",
-    period: "Apr 2024 \u2013 May 2025",
-    result:
-      "Managed Snapchat pages exceeding 1M followers. 200K\u20131M views per video. 10\u201315 videos per week across multiple channels at one of the UK\u2019s largest publishers.",
+    year: "2024",
+    title: "Founded Capra AI & Capra Studio",
+    description:
+      "Two AI ventures. Voice agents. Generative content for enterprise brands. 10+ web apps shipped with Claude Code.",
+  },
+  {
+    year: "2025",
+    title: "AI Creative Director for flydubai",
+    description:
+      "Directed generative content for a $2B global airline. Work valued at \u00a325,000 per video by the client.",
+  },
+  {
+    year: "Now",
+    title: "Teaching what I learned",
+    description:
+      "Everything I built in 12 months \u2014 the tools, the workflows, the mindset \u2014 packaged into training you can actually use.",
   },
 ];
 
-const tools = [
-  { category: "AI Video", items: "Google Flow / Veo, Runway, Sora" },
+const offerings = [
   {
-    category: "Generative Image",
-    items: "Midjourney, DALL-E, Stable Diffusion, Adobe Firefly",
+    icon: Buildings,
+    title: "For companies",
+    description:
+      "I come into your business, audit your workflows, and show your team exactly where AI creates leverage. Then I train them to use it. Not a deck full of theory \u2014 hands-on sessions with real tools, real outputs, real ROI.",
+    points: [
+      "AI content production training",
+      "Workflow automation workshops",
+      "Tool selection and implementation",
+      "Team upskilling programmes",
+    ],
   },
-  { category: "Voice & Agents", items: "ElevenLabs, VAPI AI, Retell AI" },
-  { category: "Development", items: "Claude Code, Make.com, Zapier" },
-  { category: "AI Platforms", items: "Claude, ChatGPT, Gemini, Perplexity" },
   {
-    category: "Post-Production",
-    items: "Premiere Pro, Final Cut Pro, Photoshop",
+    icon: User,
+    title: "For individuals",
+    description:
+      "Whether you are a marketer, creator, founder, or freelancer \u2014 I teach you the same tools and methods I used to go from video editor to AI Creative Director. Practical skills. Immediate results.",
+    points: [
+      "One-to-one coaching",
+      "AI content creation masterclass",
+      "Building with Claude Code",
+      "Career transition guidance",
+    ],
   },
 ];
 
@@ -131,335 +142,329 @@ export default function Home() {
     <main>
       {/* ── NAV ── */}
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-8 px-8 py-3.5 rounded-full bg-surface/80 backdrop-blur-2xl border border-border"
+        transition={{ duration: 0.6, ease }}
+        className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl border-b border-border"
       >
-        <span className="font-serif italic text-lg tracking-tight text-foreground">
-          BS
-        </span>
-        <div className="hidden md:flex items-center gap-7">
-          {["Services", "Track record", "Tools", "Contact"].map((label) => (
-            <a
-              key={label}
-              href={`#${label.toLowerCase().replace(" ", "-")}`}
-              className="text-[13px] text-muted hover:text-foreground transition-colors duration-300 tracking-wide uppercase"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-        <a
-          href="#contact"
-          className="hidden md:flex items-center gap-2 pl-5 pr-4 py-2 rounded-full bg-accent/10 text-accent text-[13px] tracking-wide hover:bg-accent/20 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
-        >
-          Work with me
-          <span className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center text-[11px]">
-            <ArrowUpRight size={12} weight="bold" />
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between h-14">
+          <span className="font-serif italic text-lg tracking-tight text-foreground">
+            Bailey Sadler
           </span>
-        </a>
+          <div className="hidden md:flex items-center gap-8">
+            {["Story", "Proof", "Training", "Contact"].map((label) => (
+              <a
+                key={label}
+                href={`#${label.toLowerCase()}`}
+                className="text-[13px] text-muted hover:text-foreground transition-colors duration-200"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+          <a
+            href="#contact"
+            className="text-[13px] text-foreground font-medium bg-foreground/5 hover:bg-foreground/10 px-4 py-1.5 rounded-md transition-colors duration-200"
+          >
+            Get in touch
+          </a>
+        </div>
       </motion.nav>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/4 blur-[200px]" />
-          <div className="absolute bottom-1/4 left-1/6 w-[300px] h-[300px] rounded-full bg-accent-light/3 blur-[150px]" />
-        </div>
+      <section className="min-h-[100dvh] flex items-center pt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+            {/* Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease }}
+              className="md:col-span-4 flex justify-center md:justify-start"
+            >
+              <div className="rounded-2xl overflow-hidden border border-border relative w-[260px] h-[325px] md:w-[300px] md:h-[375px]">
+                <Image
+                  src="/images/bailey.jpg"
+                  alt="Bailey Sadler"
+                  fill
+                  priority
+                  quality={95}
+                  sizes="(max-width: 768px) 260px, 300px"
+                  className="object-cover object-top"
+                />
+              </div>
+            </motion.div>
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 py-32">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
             {/* Text */}
-            <div className="md:col-span-7">
+            <div className="md:col-span-8">
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3, ease }}
+                transition={{ duration: 0.7, delay: 0.3, ease }}
               >
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/8 border border-accent/10 text-[10px] uppercase tracking-[0.2em] text-accent-light font-medium mb-8">
-                  <MapPin size={12} weight="fill" />
-                  Manchester, UK
-                </span>
+                <p className="text-accent text-sm font-medium tracking-wide mb-6">
+                  AI Educator
+                </p>
               </motion.div>
 
               <motion.h1
-                initial={{ y: 40, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5, ease }}
-                className="font-serif italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.95] text-foreground mb-6"
+                transition={{ duration: 0.8, delay: 0.4, ease }}
+                className="font-serif italic text-[2.75rem] md:text-6xl lg:text-7xl tracking-tight leading-[1.05] text-foreground mb-6"
               >
-                Bailey
+                I learned AI by doing.
                 <br />
-                Sadler
+                <span className="text-muted">Now I teach it.</span>
               </motion.h1>
 
               <motion.p
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: 16, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.65, ease }}
-                className="text-xl md:text-2xl text-accent font-medium tracking-tight mb-4"
+                transition={{ duration: 0.7, delay: 0.55, ease }}
+                className="text-muted text-lg leading-relaxed max-w-[52ch] mb-8"
               >
-                AI Transformation Director
-              </motion.p>
-
-              <motion.p
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.9, delay: 0.8, ease }}
-                className="text-base md:text-lg text-muted leading-relaxed max-w-[52ch] mb-10"
-              >
-                I help businesses replace expensive agencies, manual workflows,
-                and slow production cycles with AI systems that actually ship.
-                8+ years in digital media. Enterprise clients. 10+ live
-                applications built and deployed.
+                12 months ago I was a video editor. Today I direct AI content
+                for a $2B airline, ship web applications with no engineering
+                team, and run AI pipelines that replaced entire agency
+                contracts. I teach companies and individuals how to do the same
+                thing.
               </motion.p>
 
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.95, ease }}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+                transition={{ duration: 0.7, delay: 0.7, ease }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-3"
               >
                 <a
-                  href="#contact"
-                  className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-accent text-background text-sm font-medium tracking-wide hover:bg-accent-light transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+                  href="#training"
+                  className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg bg-foreground text-background text-sm font-medium hover:bg-foreground/90 transition-colors duration-200 active:scale-[0.98]"
                 >
-                  Work with me
-                  <span className="w-7 h-7 rounded-full bg-background/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-px transition-transform duration-500">
-                    <ArrowUpRight size={14} weight="bold" />
-                  </span>
+                  See how I can help
+                  <ArrowUpRight size={14} weight="bold" />
                 </a>
                 <a
-                  href="#track-record"
-                  className="text-sm text-muted hover:text-foreground transition-colors duration-300 underline underline-offset-4 decoration-border hover:decoration-accent/40"
+                  href="#story"
+                  className="text-sm text-muted hover:text-foreground transition-colors duration-200 px-1"
                 >
-                  See the track record
+                  Read my story
                 </a>
               </motion.div>
             </div>
-
-            {/* Photo */}
-            <motion.div
-              initial={{ y: 30, opacity: 0, scale: 0.97 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.6, ease }}
-              className="md:col-span-5 flex justify-center md:justify-end"
-            >
-              <div className="rounded-[2.5rem] bg-surface border border-border p-2 shadow-[0_20px_60px_-15px_rgba(201,165,92,0.08)]">
-                <div className="rounded-[calc(2.5rem-0.5rem)] overflow-hidden relative w-[280px] h-[350px] md:w-[340px] md:h-[425px]">
-                  <Image
-                    src="/images/bailey.jpg"
-                    alt="Bailey Sadler"
-                    fill
-                    priority
-                    quality={95}
-                    sizes="(max-width: 768px) 280px, 340px"
-                    className="object-cover object-top"
-                  />
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="py-6 border-y border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6 py-10">
-            {stats.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={i * 0.06}>
-                <div>
-                  <p className="text-2xl md:text-3xl font-serif italic text-accent tracking-tight mb-1.5">
-                    {stat.value}
+      {/* ── PROOF ── */}
+      <section id="proof" className="py-24 md:py-32 border-y border-border">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <Reveal>
+            <p className="text-accent text-sm font-medium tracking-wide mb-4">
+              The proof
+            </p>
+            <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
+              Results, not promises
+            </h2>
+            <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-14">
+              Everything I teach is built on things I have actually done. These
+              are the numbers from the last 12 months.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden border border-border">
+            {proof.map((item, i) => (
+              <Reveal key={item.stat} delay={i * 0.05}>
+                <div className="bg-surface p-8 h-full">
+                  <p className="font-serif italic text-3xl md:text-4xl text-foreground tracking-tight">
+                    {item.stat}
                   </p>
-                  <p className="text-muted text-xs leading-relaxed">
-                    {stat.label}
+                  <p className="text-accent text-xs font-medium uppercase tracking-[0.1em] mt-1 mb-3">
+                    {item.context}
+                  </p>
+                  <p className="text-muted text-sm leading-relaxed">
+                    {item.detail}
                   </p>
                 </div>
-              </ScrollReveal>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
-      <section id="services" className="py-32 md:py-44">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <ScrollReveal>
-            <span className="inline-block px-3 py-1.5 rounded-full bg-accent/8 border border-accent/10 text-[10px] uppercase tracking-[0.2em] text-accent-light font-medium mb-5">
-              What I do
-            </span>
-            <h2 className="font-serif italic text-4xl md:text-6xl tracking-tighter leading-none text-foreground mb-16">
-              Built to replace
+      {/* ── STORY ── */}
+      <section id="story" className="py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <Reveal>
+            <p className="text-accent text-sm font-medium tracking-wide mb-4">
+              The journey
+            </p>
+            <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
+              From editor to AI director
               <br />
-              what slows you down
+              <span className="text-muted">in 12 months</span>
             </h2>
-          </ScrollReveal>
+            <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-14">
+              I did not study computer science. I did not have a team. I just
+              started using the tools and refused to stop until they worked.
+            </p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {services.map((service, i) => (
-              <ScrollReveal key={service.title} delay={i * 0.1}>
-                <div className="group rounded-[2rem] bg-surface border border-border p-1.5 h-full">
-                  <div className="rounded-[calc(2rem-0.375rem)] bg-surface-light p-8 md:p-10 h-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">
-                    <div className="w-12 h-12 rounded-2xl bg-accent/8 border border-accent/10 flex items-center justify-center mb-6">
-                      <service.icon
-                        size={24}
-                        weight="light"
-                        className="text-accent"
-                      />
-                    </div>
-                    <h3 className="text-foreground font-medium text-lg mb-3 tracking-tight">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TRACK RECORD ── */}
-      <section id="track-record" className="py-32 md:py-44 relative">
-        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] rounded-full bg-accent/3 blur-[200px] pointer-events-none" />
-
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <ScrollReveal>
-            <span className="inline-block px-3 py-1.5 rounded-full bg-accent/8 border border-accent/10 text-[10px] uppercase tracking-[0.2em] text-accent-light font-medium mb-5">
-              Experience
-            </span>
-            <h2 className="font-serif italic text-4xl md:text-6xl tracking-tighter leading-none text-foreground mb-16">
-              Track record
-            </h2>
-          </ScrollReveal>
-
-          <div className="space-y-4">
-            {experience.map((exp, i) => (
-              <ScrollReveal key={exp.company} delay={i * 0.1}>
-                <div className="rounded-[2rem] bg-surface border border-border p-1.5">
-                  <div className="rounded-[calc(2rem-0.375rem)] bg-surface-light p-8 md:p-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div>
-                        <h3 className="text-foreground font-medium text-lg tracking-tight">
-                          {exp.role}
-                        </h3>
-                        <p className="text-accent text-sm">
-                          {exp.company}
-                          {exp.via && (
-                            <span className="text-muted">
-                              {" "}
-                              &middot; {exp.via}
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                      <span className="text-xs text-muted font-mono tracking-wide shrink-0">
-                        {exp.period}
+          <div className="max-w-[700px]">
+            {timeline.map((item, i) => (
+              <Reveal key={`${item.year}-${item.title}`} delay={i * 0.06}>
+                <div className="flex gap-6 md:gap-8 pb-10 last:pb-0">
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full bg-surface-warm border border-border flex items-center justify-center shrink-0">
+                      <span className="text-[11px] font-mono text-muted">
+                        {item.year}
                       </span>
                     </div>
-                    <p className="text-muted text-sm leading-relaxed max-w-[70ch]">
-                      {exp.result}
+                    {i < timeline.length - 1 && (
+                      <div className="w-px flex-1 bg-border mt-2" />
+                    )}
+                  </div>
+                  <div className="pt-2 pb-2">
+                    <h3 className="text-foreground font-medium text-base mb-1.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted text-sm leading-relaxed">
+                      {item.description}
                     </p>
                   </div>
                 </div>
-              </ScrollReveal>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── TOOLS ── */}
-      <section id="tools" className="py-32 md:py-44">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <ScrollReveal>
-            <span className="inline-block px-3 py-1.5 rounded-full bg-accent/8 border border-accent/10 text-[10px] uppercase tracking-[0.2em] text-accent-light font-medium mb-5">
-              Stack
-            </span>
-            <h2 className="font-serif italic text-4xl md:text-6xl tracking-tighter leading-none text-foreground mb-16">
-              Tools I work with
+      {/* ── TRAINING ── */}
+      <section
+        id="training"
+        className="py-24 md:py-32 border-y border-border bg-surface-warm"
+      >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <Reveal>
+            <p className="text-accent text-sm font-medium tracking-wide mb-4">
+              Training
+            </p>
+            <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
+              I teach what I use
             </h2>
-          </ScrollReveal>
+            <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-14">
+              No slides full of theory. I sit with you, open the tools, and
+              build something real. You leave with skills you can use the next
+              morning.
+            </p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {tools.map((tool, i) => (
-              <ScrollReveal key={tool.category} delay={i * 0.08}>
-                <div className="rounded-[2rem] bg-surface border border-border p-1.5 h-full">
-                  <div className="rounded-[calc(2rem-0.375rem)] bg-surface-light p-7 h-full shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">
-                    <p className="text-accent text-xs uppercase tracking-[0.15em] font-medium mb-3">
-                      {tool.category}
-                    </p>
-                    <p className="text-foreground/80 text-sm leading-relaxed">
-                      {tool.items}
-                    </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {offerings.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.1}>
+                <div className="bg-surface rounded-xl border border-border p-8 md:p-10 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-surface-warm border border-border flex items-center justify-center mb-6">
+                    <item.icon
+                      size={20}
+                      weight="regular"
+                      className="text-accent"
+                    />
                   </div>
+                  <h3 className="text-foreground font-medium text-xl mb-3 tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {item.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-center gap-2.5 text-sm text-foreground/80"
+                      >
+                        <Play
+                          size={8}
+                          weight="fill"
+                          className="text-accent shrink-0"
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </ScrollReveal>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="py-32 md:py-44 relative">
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/4 blur-[200px] pointer-events-none" />
-
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="max-w-2xl mx-auto text-center">
-            <ScrollReveal>
-              <span className="inline-block px-3 py-1.5 rounded-full bg-accent/8 border border-accent/10 text-[10px] uppercase tracking-[0.2em] text-accent-light font-medium mb-5">
+      <section id="contact" className="py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="max-w-[600px]">
+            <Reveal>
+              <p className="text-accent text-sm font-medium tracking-wide mb-4">
                 Get in touch
-              </span>
-              <h2 className="font-serif italic text-4xl md:text-6xl tracking-tighter leading-none text-foreground mb-6">
-                Ready to move faster
-                <br />
-                with AI?
-              </h2>
-              <p className="text-muted text-base leading-relaxed mb-10 max-w-[50ch] mx-auto">
-                Whether you need a fractional AI director, a full content
-                pipeline rebuild, or someone to ship your product idea in a week
-                — I am available for consulting, projects, and full-time roles.
               </p>
-            </ScrollReveal>
+              <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
+                Ready to learn AI
+                <br />
+                from someone who ships?
+              </h2>
+              <p className="text-muted text-base leading-relaxed mb-10">
+                I work with companies who want their teams trained on AI, and
+                with individuals who want to transform their careers the way I
+                transformed mine. Based in Manchester, available anywhere.
+              </p>
+            </Reveal>
 
-            <ScrollReveal delay={0.15}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <Reveal delay={0.1}>
+              <div className="space-y-3 mb-10">
                 <a
                   href="mailto:baileysadler@hotmail.co.uk"
-                  className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-accent text-background text-sm font-medium tracking-wide hover:bg-accent-light transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+                  className="group flex items-center gap-3 text-foreground hover:text-accent transition-colors duration-200"
                 >
-                  <EnvelopeSimple size={16} weight="bold" />
-                  baileysadler@hotmail.co.uk
+                  <div className="w-10 h-10 rounded-lg bg-surface-warm border border-border flex items-center justify-center">
+                    <EnvelopeSimple size={16} weight="regular" />
+                  </div>
+                  <span className="text-sm">baileysadler@hotmail.co.uk</span>
+                  <ArrowUpRight
+                    size={12}
+                    className="text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  />
                 </a>
+
                 <a
                   href="https://linkedin.com/in/baileysadler"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border text-foreground text-sm tracking-wide hover:border-accent/30 hover:bg-surface-light transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+                  className="group flex items-center gap-3 text-foreground hover:text-accent transition-colors duration-200"
                 >
-                  <LinkedinLogo size={16} weight="bold" />
-                  LinkedIn
+                  <div className="w-10 h-10 rounded-lg bg-surface-warm border border-border flex items-center justify-center">
+                    <LinkedinLogo size={16} weight="regular" />
+                  </div>
+                  <span className="text-sm">linkedin.com/in/baileysadler</span>
+                  <ArrowUpRight
+                    size={12}
+                    className="text-muted opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  />
                 </a>
               </div>
-            </ScrollReveal>
+            </Reveal>
 
-            <ScrollReveal delay={0.25}>
-              <p className="text-muted/40 text-xs font-mono">
+            <Reveal delay={0.2}>
+              <p className="text-muted/50 text-xs font-mono">
                 Manchester, UK &middot; Open to relocation &middot; Available
                 now
               </p>
-            </ScrollReveal>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* ── FOOTER ── */}
       <footer className="border-t border-border py-8">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="font-serif italic text-sm text-muted">
             Bailey Sadler
           </span>
