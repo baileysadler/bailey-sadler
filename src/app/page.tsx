@@ -7,8 +7,8 @@ import {
   EnvelopeSimple,
   LinkedinLogo,
   Play,
-  Buildings,
-  User,
+  VideoCamera,
+  Terminal,
 } from "@phosphor-icons/react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -112,27 +112,33 @@ const timeline = [
 
 const offerings = [
   {
-    icon: Buildings,
-    title: "For companies",
+    icon: VideoCamera,
+    title: "AI content creation",
+    subtitle: "Learn the tools that replaced a \u00a38K-per-video agency",
     description:
-      "I come into your business, audit your workflows, and show your team exactly where AI creates leverage. Then I train them to use it. Not a deck full of theory \u2014 hands-on sessions with real tools, real outputs, real ROI.",
+      "A hands-on presentation and workshop covering every generative AI tool I use daily. I walk you through the models, show live demos, compare outputs side by side, and teach you how to build a production pipeline from scratch.",
     points: [
-      "AI content production training",
-      "Workflow automation workshops",
-      "Tool selection and implementation",
-      "Team upskilling programmes",
+      "Video generation \u2014 Google Flow, Veo, Runway, Sora, Cling",
+      "Image generation \u2014 Midjourney, Nano Banana Pro, Higgs Field, DALL-E",
+      "Voice and audio \u2014 ElevenLabs, voice cloning, narration",
+      "Prompt engineering \u2014 how to get consistent, brand-quality output",
+      "Building a pipeline \u2014 from brief to finished asset, same day",
+      "Live demos with real examples from enterprise client work",
     ],
   },
   {
-    icon: User,
-    title: "For individuals",
+    icon: Terminal,
+    title: "Claude for business",
+    subtitle: "The tool I used to ship 10+ apps with no engineering team",
     description:
-      "Whether you are a marketer, creator, founder, or freelancer \u2014 I teach you the same tools and methods I used to go from video editor to AI Creative Director. Practical skills. Immediate results.",
+      "A presentation and live demonstration of how Claude and Claude Code can transform the way your business operates. I cover what it actually does, where it creates the most leverage, and I install it and run it live so you can see the results in real time.",
     points: [
-      "One-to-one coaching",
-      "AI content creation masterclass",
-      "Building with Claude Code",
-      "Career transition guidance",
+      "What Claude is and why it matters for your business",
+      "Claude Code \u2014 live install, setup, and real-time demo",
+      "Document production \u2014 decks, reports, briefs in minutes",
+      "Web applications \u2014 how I ship live products with no dev team",
+      "Workflow acceleration \u2014 finding where Claude saves you hours",
+      "The Anthropic ecosystem \u2014 what is coming and how to prepare",
     ],
   },
 ];
@@ -152,7 +158,7 @@ export default function Home() {
             Bailey Sadler
           </span>
           <div className="hidden md:flex items-center gap-8">
-            {["Story", "Proof", "Training", "Contact"].map((label) => (
+            {["Story", "Proof", "Presentations", "Contact"].map((label) => (
               <a
                 key={label}
                 href={`#${label.toLowerCase()}`}
@@ -238,10 +244,10 @@ export default function Home() {
                 className="flex flex-col sm:flex-row items-start sm:items-center gap-3"
               >
                 <a
-                  href="#training"
+                  href="#presentations"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg bg-foreground text-background text-sm font-medium hover:bg-foreground/90 transition-colors duration-200 active:scale-[0.98]"
                 >
-                  See how I can help
+                  See the presentations
                   <ArrowUpRight size={14} weight="bold" />
                 </a>
                 <a
@@ -341,21 +347,23 @@ export default function Home() {
 
       {/* ── TRAINING ── */}
       <section
-        id="training"
+        id="presentations"
         className="py-24 md:py-32 border-y border-border bg-surface-warm"
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <Reveal>
             <p className="text-accent text-sm font-medium tracking-wide mb-4">
-              Training
+              Presentations
             </p>
             <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
-              I teach what I use
+              Two sessions.
+              <br />
+              <span className="text-muted">Real tools, live demos.</span>
             </h2>
             <p className="text-muted text-base leading-relaxed max-w-[55ch] mb-14">
-              No slides full of theory. I sit with you, open the tools, and
-              build something real. You leave with skills you can use the next
-              morning.
+              I deliver two focused presentations, each built on work I have
+              done for real clients. No theory decks. I open the tools, run them
+              live, and show you exactly what is possible.
             </p>
           </Reveal>
 
@@ -370,9 +378,12 @@ export default function Home() {
                       className="text-accent"
                     />
                   </div>
-                  <h3 className="text-foreground font-medium text-xl mb-3 tracking-tight">
+                  <h3 className="text-foreground font-medium text-xl mb-1 tracking-tight">
                     {item.title}
                   </h3>
+                  <p className="text-accent text-xs font-medium mb-4">
+                    {item.subtitle}
+                  </p>
                   <p className="text-muted text-sm leading-relaxed mb-6">
                     {item.description}
                   </p>
@@ -407,14 +418,13 @@ export default function Home() {
                 Get in touch
               </p>
               <h2 className="font-serif italic text-3xl md:text-5xl tracking-tight leading-tight text-foreground mb-4">
-                Ready to learn AI
-                <br />
-                from someone who ships?
+                Book a presentation
               </h2>
               <p className="text-muted text-base leading-relaxed mb-10">
-                I work with companies who want their teams trained on AI, and
-                with individuals who want to transform their careers the way I
-                transformed mine. Based in Manchester, available anywhere.
+                I deliver AI content creation and Claude for business
+                presentations to companies and teams of any size. Each session
+                includes live tool demos, real examples from client work, and
+                practical takeaways. Based in Manchester, available anywhere.
               </p>
             </Reveal>
 
